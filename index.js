@@ -28,8 +28,8 @@ const connect = async () => {
 const verify = (req, res, next) => {
     const authHeader = req.headers.authtoken;
     if (authHeader) {
-        const token = authHeader.split(' ')[1];
-        jwt.verify(token, secret, (err, user) => {
+        console.log(authHeader)
+        jwt.verify(authHeader, secret, (err, user) => {
             if (err) {
                 res.send({ message: "Access Forbidden!", error: err});
             } else {
